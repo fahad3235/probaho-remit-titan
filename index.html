@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Probaho Remit — Titan Edition. A simulated, explainable cross-border finance demo for the 2026 Shenzhen International FinTech Competition. All data is synthetic.">
+<meta name="color-scheme" content="light">
+<title>Probaho Remit · Titan Edition — AI as a Financial Participant</title>
+<link rel="stylesheet" href="bundle.css">
+<link rel="stylesheet" href="print.css" media="print">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#view">Skip to content</a>
+<div id="fatal" role="alert" style="display:none;background:#8E2418;color:#fff;padding:12px 18px;font-size:13px;font-weight:600"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    <a class="brand" href="#/" aria-label="Probaho Remit home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c3.2 0 4.8-2.4 6.2-5.2C11.6 7 13.2 5 16 5"/><path d="M13 5h3v3"/><path d="M20 9c-3.2 0-4.8 2.4-6.2 5.2C12.4 17 10.8 19 8 19"/><path d="M11 19H8v-3"/></svg>
+      </span>
+      <span>Probaho Remit<small>Titan Edition</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Primary"></nav>
+    <div class="header-spacer"></div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <select id="screenJumpSelect" class="input" style="padding:6px 10px;font-size:12px;font-weight:600;border-radius:8px;background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.2);cursor:pointer;" onchange="if(this.value)location.hash=this.value;">
+        <option value="" style="background:#0f172a;color:#fff;">⚡ Quick Switch Screen...</option>
+        <option value="#/home" style="background:#0f172a;color:#fff;">Screen 1: Public Landing Page</option>
+        <option value="#/dashboard" style="background:#0f172a;color:#fff;">Screen 2: User Dashboard (KPIs & Charts)</option>
+        <option value="#/send" style="background:#0f172a;color:#fff;">User Portal: Send Money (4-Step Flow)</option>
+        <option value="#/beneficiaries" style="background:#0f172a;color:#fff;">User Portal: Saved Beneficiaries</option>
+        <option value="#/kyc" style="background:#0f172a;color:#fff;">User Portal: KYC Verification & Quotas</option>
+        <option value="#/settings" style="background:#0f172a;color:#fff;">User Portal: Account Settings & Security</option>
+        <option value="#/corridor-optimizer" style="background:#0f172a;color:#fff;">Screen 3: Transfer Optimizer (Wise, Remitly...)</option>
+        <option value="#/tuition-planner" style="background:#0f172a;color:#fff;">Screen 4: Tuition Planner (72% Radial)</option>
+        <option value="#/scamshield" style="background:#0f172a;color:#fff;">Screen 5: ScamShield Safety Score (92/100)</option>
+        <option value="#/rates" style="background:#0f172a;color:#fff;">Screen 6: FX Advisor & Live Board</option>
+        <option value="#/payment-vault" style="background:#0f172a;color:#fff;">Screen 7: Vault & Verified Documents</option>
+        <option value="#/ask-probaho" style="background:#0f172a;color:#fff;">Screen 8: Ask Probaho AI Copilot</option>
+        <option value="#/fees" style="background:#0f172a;color:#fff;">Screen: Fee Schedules & Pricing</option>
+        <option value="#/corridors" style="background:#0f172a;color:#fff;">Screen: Supported Corridors</option>
+        <option value="#/terms" style="background:#0f172a;color:#fff;">Legal: Terms of Service</option>
+        <option value="#/privacy" style="background:#0f172a;color:#fff;">Legal: Privacy Policy</option>
+        <option value="#/refunds" style="background:#0f172a;color:#fff;">Legal: Refund & Cancellation</option>
+        <option value="#/transactions" style="background:#0f172a;color:#fff;">Transactions History</option>
+        <option value="#/analytics" style="background:#0f172a;color:#fff;">Analytics & Volume Reports</option>
+        <option value="#/architecture" style="background:#0f172a;color:#fff;">Platform Security Architecture</option>
+        <option value="#/sign-in" style="background:#0f172a;color:#fff;">Sign In / Access Control</option>
+      </select>
+      <button type="button" class="btn btn-secondary btn-sm" id="langToggleBtn" style="border-radius:8px;font-size:12px;font-weight:700;padding:6px 10px;background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.2);cursor:pointer;" title="Switch Language">🌐 <span id="langLabel">বাংলা</span></button>
+      <button type="button" class="btn btn-secondary btn-sm" id="btnOpenCustomizer" style="border-radius:8px;font-size:12px;font-weight:700;padding:6px 12px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);cursor:pointer;" onclick="if(window.Customizer) Customizer.openModal();">⚙️ Customize</button>
+      <div id="headerAuthTools" style="display:flex;align-items:center;gap:8px;"></div>
+    </div>
+    <span class="demo-pill"><span class="badge badge-demo" title="Every rate, fee, provider and record in this product is synthetic demonstration data.">DEMO&nbsp;DATA</span></span>
+  </div>
+</header>
+
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="drawer" id="drawer" aria-label="Mobile navigation">
+  <div class="drawer-head">
+    <span class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c3.2 0 4.8-2.4 6.2-5.2C11.6 7 13.2 5 16 5"/><path d="M13 5h3v3"/><path d="M20 9c-3.2 0-4.8 2.4-6.2 5.2C12.4 17 10.8 19 8 19"/><path d="M11 19H8v-3"/></svg></span><span>Probaho<small>Titan Edition</small></span></span>
+    <button class="btn btn-secondary btn-sm" id="drawerClose">Close</button>
+  </div>
+  <nav id="drawerNav" aria-label="Mobile"></nav>
+  <div class="drawer-foot"><span class="badge badge-demo">DEMO&nbsp;DATA</span><p class="tiny muted" style="margin-top:8px">Simulated product. No real money moves here.</p></div>
+</aside>
+
+<main class="page" id="view" tabindex="-1" aria-live="off"></main>
+
+<nav class="mobile-tabs" id="mobileTabs" aria-label="Quick navigation">
+  <a href="#/home"><span class="mt-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5L12 3l9 8.5"/><path d="M5.5 10.5V20h13v-9.5"/></svg></span><span>Home</span></a>
+  <a href="#/send"><span class="mt-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></span><span>Send</span></a>
+  <a href="#/scamshield"><span class="mt-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 4v5c0 4.4-3 8.2-7 9-4-.8-7-4.6-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span>Shield</span></a>
+  <a href="#/payment-vault"><span class="mt-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10.5h18"/><circle cx="12" cy="14.5" r="1.6"/></svg></span><span>Vault</span></a>
+  <a href="#/help"><span class="mt-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 14a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span>Help</span></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disc">
+      <b>Simulation disclosure.</b> Probaho Remit — Titan Edition is an educational demonstration built for the 2026 Shenzhen
+      International FinTech Competition (International Track, Topic C). Rates, fees, provider comparisons, FX history, AI responses
+      and risk scores are <b>illustrative synthetic data</b> — not live financial offers. No money is moved, and no payment
+      instructions are verified with a bank or university. Independently confirm recipient details and obtain current quotes from
+      authorised providers before making a real payment. A risk score is not proof of fraud; a draft is not a transfer.
+    </div>
+    <div class="footer-meta">
+      <span>Probaho Remit · Titan Edition · Demo build for competition judging</span>
+      <nav aria-label="Footer" style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#/corridor-optimizer">Optimizer</a>
+        <a href="#/fees">Fees</a>
+        <a href="#/corridors">Corridors</a>
+        <a href="#/scamshield">ScamShield</a>
+        <a href="#/tuition-planner">Tuition</a>
+        <a href="#/terms">Terms</a>
+        <a href="#/privacy">Privacy</a>
+        <a href="#/refunds">Refunds</a>
+        <a href="#/cookies">Cookies</a>
+        <a href="#/help">Support</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div id="modalRoot"></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<noscript><p style="padding:40px;text-align:center">Probaho Remit — Titan Edition needs JavaScript to run its interactive demo modules.</p></noscript>
+
+<!-- Config + seeded data -->
+<script src="app-bundle.js"></script>
+</body>
+</html>
